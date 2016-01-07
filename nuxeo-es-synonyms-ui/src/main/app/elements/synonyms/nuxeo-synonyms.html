@@ -1,0 +1,74 @@
+<dom-module id="nuxeo-synonyms" assetpath="nuxeo-synonyms/">
+  <template>
+  <style>
+    paper-button {
+      background: #FFFFFF;
+      color: black;
+    }
+
+  </style>
+  <nx-connection id="nx"></nx-connection>
+  <nuxeo-operation id="ReadSynonyms" op="ReadSynonyms" params="" response="{{response}}"></nuxeo-operation>
+  <nuxeo-operation id="WriteSynonyms" op="WriteSynonyms" params="{{params}}" on-response="{{showResponse}}"></nuxeo-operation>
+  <nuxeo-operation id="Reindex" op="Reindex" params=""></nuxeo-operation>
+  <div class="bubbleBox">
+      <div class="bubbleHeader">
+        <h3>Synonyms</h3>
+        <table width="100%">
+
+        <tr>
+          <td>
+            <paper-textarea id="textarea" label="" value="{{response::input}}" placeholder="{{placeholder}}"></paper-textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <paper-button on-tap="saveSynonyms">Save</paper-button>
+            <paper-button on-tap="reindex">Reindex</paper-button>
+          </td>
+        </tr>
+        </tbody>
+        </table>
+      </div>
+  </div>
+</template>
+<script>
+    Polymer({
+      is: 'nuxeo-synonyms',
+      created: function() {
+
+      },
+      properties: {
+        params: {
+          type:Object,
+          value: {}
+        },
+        response: {
+          type: String,
+          observer:'_callbackReadSynonyms'
+        }
+      },
+
+      ready: function () {
+        this.$.ReadSynonyms.execute();
+      },
+
+      _callbackReadSynonyms: function(response){
+        //console.log(response);
+      },
+
+      saveSynonyms: function(){
+        this.params.synonyms = this.response;
+        this.$.WriteSynonyms.execute();
+      },
+
+      showResponse: function(){
+        console.log("saved");
+      },
+
+      reindex: function(){
+        this.$.Reindex.execute();
+      }
+    });
+</script>
+</dom-module>
