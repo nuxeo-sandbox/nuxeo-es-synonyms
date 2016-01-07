@@ -1,0 +1,4 @@
+hp, hewlett packard
+ms, microsoft
+vw, volkswagen
+mercedes, benz, mercedes benz, mercedes-benz
