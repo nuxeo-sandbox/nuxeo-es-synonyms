@@ -10,15 +10,10 @@ import java.io.IOException;
 
 import org.nuxeo.common.Environment;
 import org.nuxeo.ecm.automation.core.Constants;
-import org.nuxeo.ecm.automation.core.annotations.Context;
 import org.nuxeo.ecm.automation.core.annotations.Operation;
 import org.nuxeo.ecm.automation.core.annotations.OperationMethod;
 import org.nuxeo.ecm.automation.core.annotations.Param;
-import org.nuxeo.ecm.automation.core.collectors.DocumentModelCollector;
-import org.nuxeo.ecm.automation.core.collectors.BlobCollector;
-import org.nuxeo.ecm.core.api.CoreSession;
-import org.nuxeo.ecm.core.api.DocumentModel;
-import org.nuxeo.ecm.core.api.DocumentRef;
+import org.nuxeo.runtime.api.Framework;
 
 /**
  * @author mgena
@@ -36,6 +31,12 @@ public class WriteSynonyms {
     	String nuxeoHomePath = Environment.getDefault().getServerHome().getAbsolutePath(); 
     	writeToFile(nuxeoHomePath+File.separator+"nxserver"+File.separator+"config"+File.separator+"synonyms.txt", synonyms);
     	writeToFile(nuxeoHomePath+File.separator+"Templates"+File.separator+"es"+File.separator+"config"+File.separator+"synonyms.txt", synonyms);
+    	
+    	//For Standalone ElasticSearch
+    	String synonymsPath = Framework.getProperty("org.nuxeo.synonyms.path");
+    	if(synonymsPath != null && !("").equals(synonymsPath)){
+    		writeToFile(synonymsPath, synonyms);
+    	}
     }    
     
     public void writeToFile(String path, String synonyms) {
