@@ -12,7 +12,9 @@ This plug-in enables the administration of synonyms through the admin interface
 - A UI based on Web Components to visualize and edit synonyms through the admin interface
 
 **Important: if you're running ElasticSearch as a standalone you need to do 2 things.**
+
 1) Copy the file nuxeo-es-synonyms/nuxeo-es-synonyms-mp/src/main/resources/install/templates/es/config/synonyms.txt into the folder etc/elasticsearch/
+
 2) Add an entry in the nuxeo.conf file for the property org.nuxeo.synonyms.path= /the/path/to/the/synonyms.txt
 
 ## Build
