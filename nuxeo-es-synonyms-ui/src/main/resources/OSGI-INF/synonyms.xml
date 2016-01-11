@@ -3,6 +3,9 @@
   <action id="SynonymsConfigurationManager" label="Synonyms" link="synonyms-view/synonyms.xhtml" order="50">
     <category>ElasticSearch_sub_tab</category>
     <filter-id>not_readonly</filter-id>
+    <properties>
+        <property name="ajaxSupport">false</property>
+    </properties>
   </action>
 </extension>
 </component>
