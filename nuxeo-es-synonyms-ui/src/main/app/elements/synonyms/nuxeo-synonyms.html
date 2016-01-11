@@ -11,6 +11,8 @@
   <nuxeo-operation id="ReadSynonyms" op="ReadSynonyms" params="" response="{{response}}"></nuxeo-operation>
   <nuxeo-operation id="WriteSynonyms" op="WriteSynonyms" params="{{params}}" on-response="{{showResponse}}"></nuxeo-operation>
   <nuxeo-operation id="Reindex" op="Reindex" params=""></nuxeo-operation>
+  <nuxeo-operation id="IsAutoReindexMode" op="IsAutoReindexMode" params="" response="{{isAutoReindexMode}}"></nuxeo-operation>
+
   <div class="bubbleBox">
       <div class="bubbleHeader">
         <h3>Synonyms</h3>
@@ -23,8 +25,10 @@
         </tr>
         <tr>
           <td>
+            <template if="{{!isAutoReindexMode}}">
             <paper-button raised on-tap="reindex">Reindex</paper-button>
-            <paper-button raised on-tap="saveSynonyms">Save</paper-button>  
+            </template>
+            <paper-button raised on-tap="saveSynonyms">Save</paper-button>
           </td>
         </tr>
         </tbody>
@@ -46,6 +50,10 @@
         response: {
           type: String,
           observer:'_callbackReadSynonyms'
+        },
+        isAutoReindexMode: {
+          type: Boolean,
+          value:false
         }
       },
 

@@ -15,6 +15,7 @@ import org.nuxeo.ecm.automation.core.annotations.Operation;
 import org.nuxeo.ecm.automation.core.annotations.OperationMethod;
 import org.nuxeo.ecm.core.api.Blob;
 import org.nuxeo.ecm.core.api.impl.blob.StringBlob;
+import org.nuxeo.runtime.api.Framework;
 
 /**
  * @author mgena
@@ -30,7 +31,13 @@ public class ReadSynonyms {
     	Scanner s;
     	String synonyms = "";
 		try {
-			s = new Scanner(new File(nuxeoHomePath+File.separator+"nxserver"+File.separator+"config"+File.separator+"synonyms.txt"));
+			//For Standalone ElasticSearch
+	    	String synonymsPath = Framework.getProperty("org.nuxeo.synonyms.path");
+	    	if(synonymsPath != null && !("").equals(synonymsPath)){
+	    		s = new Scanner(new File(synonymsPath));
+	    	}else{
+	    		s = new Scanner(new File(nuxeoHomePath+File.separator+"nxserver"+File.separator+"config"+File.separator+"synonyms.txt"));
+	    	}
 			ArrayList<String> list = new ArrayList<String>();
 	    	while (s.hasNextLine()){
 	    		String synonymLine = s.nextLine();

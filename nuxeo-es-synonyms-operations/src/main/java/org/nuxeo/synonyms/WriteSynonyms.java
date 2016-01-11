@@ -39,9 +39,9 @@ public class WriteSynonyms {
     		writeToFile(synonymsPath, synonyms);
     	}
     	 	
-    	//Auto reindex ElastichSearch
+    	//Auto Reindex ElastichSearch
     	String autoReindex = Framework.getProperty("org.nuxeo.synonyms.autoreindex");
-    	if(autoReindex != null && !("true").equals(autoReindex)){
+    	if(autoReindex != null && ("true").equals(autoReindex)){
     		ElasticSearchComponent esc = (ElasticSearchComponent) Framework.getRuntime().getComponent("org.nuxeo.elasticsearch.ElasticSearchComponent");    	
     		String repositoryName = "default";
     		esc.dropAndInitRepositoryIndex(repositoryName);

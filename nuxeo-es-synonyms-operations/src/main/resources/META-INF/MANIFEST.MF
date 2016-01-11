@@ -9,5 +9,6 @@ Bundle-ManifestVersion: 2
 Bundle-Vendor: Nuxeo
 Nuxeo-Component: OSGI-INF/extensions/org.nuxeo.synonyms.ReadSynonyms.x
  ml,OSGI-INF/extensions/org.nuxeo.synonyms.WriteSynonyms.xml,OSGI-INF/
- extensions/org.nuxeo.es.Reindex.xml
+ extensions/org.nuxeo.es.Reindex.xml,OSGI-INF/extensions/org.nuxeo.es.
+ IsAutoReindexMode.xml
 
