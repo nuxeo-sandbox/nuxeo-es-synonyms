@@ -13,6 +13,7 @@ import org.nuxeo.ecm.automation.core.Constants;
 import org.nuxeo.ecm.automation.core.annotations.Operation;
 import org.nuxeo.ecm.automation.core.annotations.OperationMethod;
 import org.nuxeo.ecm.automation.core.annotations.Param;
+import org.nuxeo.elasticsearch.ElasticSearchComponent;
 import org.nuxeo.runtime.api.Framework;
 
 /**
@@ -36,6 +37,15 @@ public class WriteSynonyms {
     	String synonymsPath = Framework.getProperty("org.nuxeo.synonyms.path");
     	if(synonymsPath != null && !("").equals(synonymsPath)){
     		writeToFile(synonymsPath, synonyms);
+    	}
+    	 	
+    	//Auto reindex ElastichSearch
+    	String autoReindex = Framework.getProperty("org.nuxeo.synonyms.autoreindex");
+    	if(autoReindex != null && !("true").equals(autoReindex)){
+    		ElasticSearchComponent esc = (ElasticSearchComponent) Framework.getRuntime().getComponent("org.nuxeo.elasticsearch.ElasticSearchComponent");    	
+    		String repositoryName = "default";
+    		esc.dropAndInitRepositoryIndex(repositoryName);
+    		esc.runReindexingWorker(repositoryName, "SELECT ecm:uuid FROM Document");
     	}
     }    
     

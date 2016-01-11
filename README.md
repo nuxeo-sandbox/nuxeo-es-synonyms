@@ -17,6 +17,8 @@ This plug-in enables the administration of synonyms through the admin interface
 
 2) Add an entry in the nuxeo.conf file for the property org.nuxeo.synonyms.path= /the/path/to/the/synonyms.txt
 
+If you want to enable autoreindexation of ElasticSearch everytime the synonyms change you need to add an entry in the nuxeo.conf file for the property org.nuxeo.synonyms.autoreindex=true
+
 ## Build
 ### Install dependencies
 
