@@ -1,6 +1,6 @@
 # nuxeo-es-synonyms
 ===================
-
+<img src="Screen-Shot.png"/>  
 This plug-in enables the administration of synonyms through the admin interface
 
 
