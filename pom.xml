@@ -3,19 +3,19 @@
   <parent>
     <groupId>org.nuxeo</groupId>
     <artifactId>nuxeo-ecm</artifactId>
-    <version>7.10</version>
+    <version>7.10-SNAPSHOT</version>
   </parent>
   <groupId>org.nuxeo.es.synonyms</groupId>
   <artifactId>nuxeo-es-synonyms-parent</artifactId>
-  <version>7.10</version>
+  <version>7.10-SNAPSHOT</version>
   <name>Nuxeo ES Synonyms Parent</name>
   <description>Nuxeo ES Synonyms POM</description>
   <packaging>pom</packaging>
 
   <properties>
       <nuxeo.project.version>${project.version}</nuxeo.project.version>
-      <nuxeo.version>7.10</nuxeo.version>
-      <nuxeo.distribution.version>7.10</nuxeo.distribution.version>
+      <nuxeo.version>7.10-SNAPSHOT</nuxeo.version>
+      <nuxeo.distribution.version>7.10-SNAPSHOT</nuxeo.distribution.version>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
