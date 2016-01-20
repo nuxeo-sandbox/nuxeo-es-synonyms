@@ -3,6 +3,7 @@
 <img src="Screen-Shot.png"/>  
 This plug-in enables the administration of synonyms through the admin interface
 
+Build Status: <a href='https://qa.nuxeo.org/jenkins/view/sandbox/job/Sandbox/job/sandbox_nuxeo-es-synonyms-master/'><img src='https://qa.nuxeo.org/jenkins/buildStatus/icon?job=Sandbox/sandbox_nuxeo-es-synonyms-master'></a>
 
 
 ## List of Features
