@@ -33,7 +33,7 @@ public class IsAutoReindexMode {
 
     public static final String ID = "IsAutoReindexMode";
 
-    @OperationMethod()
+    @OperationMethod
     public Blob run() {
     	//Auto Reindex ElastichSearch
     	String autoReindex = Framework.getProperty("org.nuxeo.synonyms.autoreindex");
