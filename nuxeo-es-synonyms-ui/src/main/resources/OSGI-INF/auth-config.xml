@@ -1,4 +1,4 @@
-<component name="org.nuxeo.polymer.authentication.contrib">
+<component name="org.nuxeo.es.synonyms.authentication.contrib">
   <extension point="startURL" target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService">
 
     <startURLPattern>
