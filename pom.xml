@@ -1,80 +1,98 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.nuxeo</groupId>
-    <artifactId>nuxeo-addons-parent</artifactId>
-    <version>7.10</version>
-  </parent>
-  <groupId>org.nuxeo.es.synonyms</groupId>
-  <artifactId>nuxeo-es-synonyms-parent</artifactId>
-  <version>7.10-SNAPSHOT</version>
-  <name>Nuxeo ES Synonyms Parent</name>
-  <description>Nuxeo ES Synonyms POM</description>
-  <packaging>pom</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.nuxeo.ecm.distribution</groupId>
+        <artifactId>nuxeo-distribution</artifactId>
+        <version>8.2</version>
+    </parent>
 
-  <properties>
-      <nuxeo.project.version>${project.version}</nuxeo.project.version>
-      <nuxeo.version>7.10</nuxeo.version>
-      <nuxeo.distribution.version>7.10</nuxeo.distribution.version>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
+    <groupId>org.nuxeo.es.synonyms</groupId>
+    <artifactId>nuxeo-es-synonyms-parent</artifactId>
+    <version>8.2-SNAPSHOT</version>
+    <name>Nuxeo ES Synonyms Parent</name>
+    <description>Nuxeo ES Synonyms POM</description>
+    <packaging>pom</packaging>
 
-  <modules>
-    <module>nuxeo-es-synonyms-operations</module>
-    <module>nuxeo-es-synonyms-ui</module>
-    <module>nuxeo-es-synonyms-mp</module>
-  </modules>
+    <modules>
+        <module>nuxeo-es-synonyms-operations</module>
+        <module>nuxeo-es-synonyms-ui</module>
+        <module>nuxeo-es-synonyms-mp</module>
+    </modules>
 
-  <dependencyManagement>
-      <dependencies>
-          <dependency>
-              <groupId>org.nuxeo.ecm.distribution</groupId>
-              <artifactId>nuxeo-distribution</artifactId>
-              <scope>import</scope>
-              <type>pom</type>
-              <version>${nuxeo.version}</version>
-          </dependency>
-          <dependency>
-              <groupId>org.nuxeo.es.synonyms</groupId>
-              <artifactId>nuxeo-es-synonyms-operations</artifactId>
-              <version>${nuxeo.project.version}</version>
-          </dependency>
-          <dependency>
-              <groupId>org.nuxeo.es.synonyms</groupId>
-              <artifactId>nuxeo-es-synonyms-ui</artifactId>
-              <version>${nuxeo.project.version}</version>
-          </dependency>
-          <dependency>
-              <groupId>org.nuxeo.es.synonyms</groupId>
-              <artifactId>nuxeo-es-synonyms-mp</artifactId>
-              <version>${nuxeo.project.version}</version>
-          </dependency>
-      </dependencies>
-  </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>public</id>
+            <url>http://maven.nuxeo.org/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>public-snapshot</id>
+            <url>http://maven.nuxeo.org/nexus/content/groups/public-snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <updatePolicy>always</updatePolicy>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>nuxeo-studio</id>
+            <url>https://connect.nuxeo.com/nuxeo/site/studio/maven</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <updatePolicy>always</updatePolicy>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
-  <repositories>
-    <repository>
-      <id>public</id>
-      <url>http://maven.nuxeo.org/nexus/content/groups/public</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>public-snapshot</id>
-      <url>http://maven.nuxeo.org/nexus/content/groups/public-snapshot</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <url>http://maven.nuxeo.org/nexus/content/groups/public</url>
+            <name>Nuxeo releases</name>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.nuxeo.es.synonyms</groupId>
+                <artifactId>nuxeo-es-synonyms-operations</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.nuxeo.es.synonyms</groupId>
+                <artifactId>nuxeo-es-synonyms-ui</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.nuxeo.es.synonyms</groupId>
+                <artifactId>nuxeo-es-synonyms-mp</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <scm>
+        <connection>scm:git:git://github.com/nuxeo-sandbox/nuxeo-es-synonyms.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:nuxeo-sandbox/nuxeo-es-synonyms.git</developerConnection>
+        <url>https://github.com/nuxeo-sandbox/nuxeo-es-synonyms.git</url>
+    </scm>
 
 </project>
