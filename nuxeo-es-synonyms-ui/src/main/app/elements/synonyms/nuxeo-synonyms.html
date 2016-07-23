@@ -8,17 +8,17 @@
 
   </style>
   <nx-connection id="nx"></nx-connection>
-  <nuxeo-operation id="ReadSynonyms" op="ReadSynonyms" params="" response="{{response}}"></nuxeo-operation>
-  <nuxeo-operation id="WriteSynonyms" op="WriteSynonyms" params="{{params}}" on-response="{{showResponse}}"></nuxeo-operation>
-  <nuxeo-operation id="Reindex" op="Reindex" params=""></nuxeo-operation>
-  <nuxeo-operation id="IsAutoReindexMode" op="IsAutoReindexMode" params="" response="{{isAutoReindexMode}}"></nuxeo-operation>
+  <nuxeo-operation auto id="ReadSynonyms" op="ReadSynonyms" on-response="_onSynonymLoaded"></nuxeo-operation>
+  <nuxeo-operation id="WriteSynonyms" op="WriteSynonyms" on-response="_onSynonymSaved"></nuxeo-operation>
+  <nuxeo-operation id="Reindex" op="Reindex"></nuxeo-operation>
+  <nuxeo-operation auto id="IsAutoReindexMode" op="IsAutoReindexMode" response="{{isAutoReindexMode}}"></nuxeo-operation>
 
   <div class="bubbleBox">
       <div class="bubbleHeader">
         <table width="100%">
         <tr>
           <td>
-            <paper-textarea id="textarea" label="" value="{{response::input}}" placeholder="{{placeholder}}"></paper-textarea>
+            <paper-textarea id="textarea" label="" value="{{synonyms}}" placeholder="{{placeholder}}"></paper-textarea>
           </td>
         </tr>
         <tr>
@@ -45,10 +45,6 @@
           type:Object,
           value: {}
         },
-        response: {
-          type: String,
-          observer:'_callbackReadSynonyms'
-        },
         isAutoReindexMode: {
           type: Boolean,
           value:false
@@ -56,20 +52,29 @@
       },
 
       ready: function () {
-        this.$.ReadSynonyms.execute();
+        console.log('nuxeo-synonyms ready');
       },
 
-      _callbackReadSynonyms: function(response){
-        //console.log(response);
+      _onSynonymLoaded: function (e) {
+        console.log('nuxeo-synonyms synonyms loaded');
+        var context = this;
+        var response = e.detail.response;
+        if (response instanceof Response) {
+            response.text().then(function(result) {
+              context.synonyms = result;
+           });
+        } else {
+           context.synonyms = response;
+        }
       },
 
       saveSynonyms: function(){
-        this.params.synonyms = this.response;
+        this.$.WriteSynonyms.params.synonyms = this.synonyms;
         this.$.WriteSynonyms.execute();
       },
 
-      showResponse: function(){
-        console.log("saved");
+      _onSynonymSaved: function(e){
+        console.log('nuxeo-synonyms synonyms saved');
       },
 
       reindex: function(){
