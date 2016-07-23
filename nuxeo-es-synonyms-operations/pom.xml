@@ -10,9 +10,7 @@
 
   <artifactId>nuxeo-es-synonyms-operations</artifactId>
   <name>nuxeo-es-synonyms-operations</name>
-  <description>
-
-  </description>
+  <description></description>
 
   <dependencies>
 

@@ -1,20 +1,19 @@
 <!-- See documentation at http://doc.nuxeo.com/x/HgIz -->
 <package type="addon" name="nuxeo-es-synonyms" version="@VERSION@">
   <title>Nuxeo ES Synonyms MP</title>
-  <description></description>
-  <home-page>http://doc.nuxeo.com/</home-page>
-  <vendor>Nuxeo</vendor>
+  <description>
+    <p>Put here an HTML description of your Nuxeo Package.</p>
+  </description>
+  <!-- <home-page>http://doc.nuxeo.com/</home-page> -->
+  <vendor>nuxeo</vendor>
   <installer restart="true" />
   <uninstaller restart="true" />
   <!-- <hotreload-support>false</hotreload-support> -->
   <!-- <require-terms-and-conditions-acceptance>false</require-terms-and-conditions-acceptance> -->
+  <!-- Nuxeo Validation: none | inprocess | primary_validation | nuxeo_certified -->
   <nuxeo-validation>none</nuxeo-validation>
-  <!-- <nuxeo-validation>inprocess</nuxeo-validation> -->
-  <!-- <nuxeo-validation>primary_validation</nuxeo-validation> -->
-  <!-- <nuxeo-validation>nuxeo_certified</nuxeo-validation> -->
-  <!-- <production-state>proto</production-state> -->
+  <!-- Production State: production_ready | testing | proto -->
   <production-state>testing</production-state>
-  <!-- <production-state>production_ready</production-state> -->
   <supported>false</supported>
   <platforms>
     <platform>cap-@DISTRIB_VERSION@</platform>
@@ -32,7 +31,8 @@
   <!-- <provides> -->
   <!-- <package>an-embedded-package:1.0.0:1.0.0</package> -->
   <!-- </provides> -->
-  <license>LGPL 2.1</license>
-  <license-url>http://www.gnu.org/licenses/lgpl-2.1.html</license-url>
-  <visibility>PUBLIC</visibility>
+  <license>Apache License, Version 2.0</license>
+  <license-url>http://www.apache.org/licenses/LICENSE-2.0</license-url>
+  <!-- Visibility: PRIVATE | MARKETPLACE | DEV | PUBLIC -->
+  <visibility>DEV</visibility>
 </package>

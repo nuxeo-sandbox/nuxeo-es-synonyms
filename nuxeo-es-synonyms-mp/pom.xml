@@ -6,6 +6,7 @@
       <groupId>org.nuxeo.es.synonyms</groupId>
       <artifactId>nuxeo-es-synonyms-parent</artifactId>
       <version>8.3-SNAPSHOT</version>
+      <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>nuxeo-es-synonyms-mp</artifactId>
@@ -13,8 +14,6 @@
     <name>Nuxeo ES Synonyms MP</name>
 
     <dependencies>
-        <!-- Base distribution(s) for the MP -->
-        <!-- Base distribution(s) for the MP -->
         <dependency>
             <groupId>org.nuxeo.ecm.distribution</groupId>
             <artifactId>nuxeo-distribution-cap</artifactId>
