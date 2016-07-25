@@ -4,6 +4,6 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.1.4",
     "paper-elements": "PolymerElements/paper-elements#^1.0.5",
-    "nuxeo-elements": "nuxeo/nuxeo-elements#^0.3.0"
+    "nuxeo-elements": "nuxeo/nuxeo-elements#^0.4.0"
   }
 }
