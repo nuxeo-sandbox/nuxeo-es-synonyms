@@ -224,9 +224,9 @@
          "type" : "multi_field",
          "fields" : {
             "children" : {
-               "search_analyzer" : "keyword",
-               "index_analyzer" : "path_analyzer",
-               "type" : "string"
+                "analyzer" : "path_analyzer",
+                "search_analyzer" : "keyword",
+                "type" : "string"
             },
             "ecm:path" : {
                "index" : "not_analyzed",
